@@ -1,33 +1,51 @@
 package myproject.web;
 
-import myproject.entity.stage.OrderStage;
+import myproject.entity.OrderStage;
 import myproject.repositories.StageRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 @Controller
+@RequestMapping("/stage")
 public class StageController {
 
-    private StageRepo stageRepo;
+    private final StageRepo stageRepo;
 
-    public StageController(StageRepo stageRepo) {
+    public StageController(final StageRepo stageRepo) {
         this.stageRepo = stageRepo;
     }
 
-    @GetMapping("/stage")
+//    @ModelAttribute("orderStage")
+//    public List<OrderStage> getStage(){
+//        return stageRepo.findAll();
+//    }
+
+    @GetMapping("")
     public String Stage(){
         return "stage";
     }
 
-    @GetMapping("/stage/add")
-    public String addStage(){
-        OrderStage orderStage = new OrderStage(1, "Przyjety");
-        OrderStage orderStage2 = new OrderStage(2, "zakonczony");
-        OrderStage orderStage3 = new OrderStage(3, "Gotowy");
-        stageRepo.save(orderStage);
-        stageRepo.save(orderStage2);
-        stageRepo.save(orderStage3);
-        return "stage";
+    @GetMapping("/add")
+    public String addStage(Model model){
+        model.addAttribute("orderStage", new OrderStage());
+        return "aaa";
     }
+
+    @PostMapping("/add")
+    public String processStage(@ModelAttribute OrderStage orderStage){
+        stageRepo.save(orderStage);
+        return "redirect:/stage";
+    }
+
+//    @RequestMapping("/delete/{id}")
+//    public String deleteCar(@PathVariable long id) {
+//        Optional<OrderStage> stageDelete = stageRepo.findById(id);
+//        stageDelete.ifPresent(stageRepo::delete);
+//        return "redirect:/dashboard/cars/list";
+//    }
 }

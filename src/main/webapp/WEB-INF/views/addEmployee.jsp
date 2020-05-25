@@ -53,7 +53,7 @@
                     </div>
 
                     <form:button class="btn btn-primary btn-lg"
-                                 type="submit">edit</form:button>
+                                 type="submit">Add</form:button>
                 </form:form>
             </fieldset>
         </div>

@@ -15,7 +15,7 @@
         <%@ include file="/WEB-INF/headers/naviTop.jspf" %>
         <div class="container-fluid">
             <h3>Stage</h3>
-            <a href="/employee/add">
+            <a href="/stage/add">
                 <button type="button" class="btn btn-success">Dodaj</button>
             </a>
             <br/><br/>

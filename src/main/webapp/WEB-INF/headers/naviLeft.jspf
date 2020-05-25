@@ -2,7 +2,7 @@
     <div class="sidebar-heading">Lift-Station </div>
     <div class="list-group list-group-flush">
         <a href="#" class="list-group-item list-group-item-action bg-light">Zlecenia</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Klienci</a>
+        <a href="/customer/" class="list-group-item list-group-item-action bg-light">Klienci</a>
         <a href="/parts/" class="list-group-item list-group-item-action bg-light">Magazyn</a>
         <a href="/employee/" class="list-group-item list-group-item-action bg-light">Pracownicy</a>
         <a href="/stage/" class="list-group-item list-group-item-action bg-light">Stage</a>

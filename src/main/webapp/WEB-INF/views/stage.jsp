@@ -30,7 +30,7 @@
                         <td>${stage.id}</td>
                         <td>${stage.name}</td>
                         <td>
-                            <a href="editemp/${stage.id}">Edit</a>
+                            <a href="stage/edit/${stage.id}">Edit</a>
                             <a href="stage/delete/${stage.id}">Delete</a>
                         </td>
                     </tr>

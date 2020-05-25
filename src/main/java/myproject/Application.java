@@ -14,11 +14,4 @@ public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
-
-    @Bean(name="localeResolver")
-    public LocaleContextResolver getLocaleContextResolver() {
-        SessionLocaleResolver localeResolver = new SessionLocaleResolver();
-        localeResolver.setDefaultLocale(new Locale("pl", "PL"));
-        return localeResolver;
-    }
 }

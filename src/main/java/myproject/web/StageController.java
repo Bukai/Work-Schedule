@@ -2,13 +2,13 @@ package myproject.web;
 
 import myproject.entity.OrderStage;
 import myproject.repositories.StageRepo;
-import org.springframework.beans.factory.annotation.Autowired;
+import myproject.service.StageService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/stage")
@@ -16,24 +16,24 @@ public class StageController {
 
     private final StageRepo stageRepo;
 
-    public StageController(final StageRepo stageRepo) {
+    private final StageService service;
+
+    public StageController(StageRepo stageRepo, StageService service) {
         this.stageRepo = stageRepo;
+        this.service = service;
     }
 
-//    @ModelAttribute("orderStage")
-//    public List<OrderStage> getStage(){
-//        return stageRepo.findAll();
-//    }
-
     @GetMapping("")
-    public String Stage(){
+    public String Stage(Model model){
+        List<OrderStage> listStage = service.listAll();
+        model.addAttribute("listStage", listStage);
         return "stage";
     }
 
     @GetMapping("/add")
     public String addStage(Model model){
         model.addAttribute("orderStage", new OrderStage());
-        return "aaa";
+        return "addStage";
     }
 
     @PostMapping("/add")
@@ -42,10 +42,17 @@ public class StageController {
         return "redirect:/stage";
     }
 
-//    @RequestMapping("/delete/{id}")
-//    public String deleteCar(@PathVariable long id) {
-//        Optional<OrderStage> stageDelete = stageRepo.findById(id);
-//        stageDelete.ifPresent(stageRepo::delete);
-//        return "redirect:/dashboard/cars/list";
-//    }
+    @GetMapping("/edit/{id}")
+    public ModelAndView editStage(@PathVariable(name = "id") long id){
+        ModelAndView modelAndView = new ModelAndView("editStage");
+        OrderStage orderStage = service.get(id);
+            modelAndView.addObject("stage", orderStage);
+        return modelAndView;
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteStage(@PathVariable(name = "id") long id){
+        service.delete(id);
+        return "redirect:/stage";
+    }
 }

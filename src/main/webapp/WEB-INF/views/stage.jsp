@@ -15,7 +15,9 @@
         <%@ include file="/WEB-INF/headers/naviTop.jspf" %>
         <div class="container-fluid">
             <h3>Stage</h3>
-            <a href="stage/add">Create New Product</a>
+            <a href="/employee/add">
+                <button type="button" class="btn btn-success">Dodaj</button>
+            </a>
             <br/><br/>
             <table border="1" cellpadding="10">
                 <thead>
@@ -30,8 +32,8 @@
                         <td>${stage.id}</td>
                         <td>${stage.name}</td>
                         <td>
-                            <a href="stage/edit/${stage.id}">Edit</a>
-                            <a href="stage/delete/${stage.id}">Delete</a>
+                            <a href="/stage/edit/${stage.id}">Edit</a>
+                            <a href="/stage/delete/${stage.id}">Delete</a>
                         </td>
                     </tr>
                 </c:forEach>

@@ -16,16 +16,16 @@ public class StageController {
 
     private final StageRepo stageRepo;
 
-    private final StageService service;
+    private final StageService stageService;
 
-    public StageController(StageRepo stageRepo, StageService service) {
+    public StageController(StageRepo stageRepo, StageService stageService) {
         this.stageRepo = stageRepo;
-        this.service = service;
+        this.stageService = stageService;
     }
 
     @GetMapping("")
     public String Stage(Model model){
-        List<OrderStage> listStage = service.listAll();
+        List<OrderStage> listStage = stageService.listAll();
         model.addAttribute("listStage", listStage);
         return "stage";
     }
@@ -37,22 +37,22 @@ public class StageController {
     }
 
     @PostMapping("/add")
-    public String processStage(@ModelAttribute OrderStage orderStage){
-        stageRepo.save(orderStage);
+    public String processStage(@ModelAttribute("orderStage") OrderStage orderStage){
+        stageService.save(orderStage);
         return "redirect:/stage";
     }
 
     @GetMapping("/edit/{id}")
     public ModelAndView editStage(@PathVariable(name = "id") long id){
         ModelAndView modelAndView = new ModelAndView("editStage");
-        OrderStage orderStage = service.get(id);
-            modelAndView.addObject("stage", orderStage);
+        OrderStage orderStage = stageService.get(id);
+        modelAndView.addObject("stage", orderStage);
         return modelAndView;
     }
 
     @GetMapping("/delete/{id}")
     public String deleteStage(@PathVariable(name = "id") long id){
-        service.delete(id);
+        stageService.delete(id);
         return "redirect:/stage";
     }
 }

@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 @Transactional
-public class EmplyeeService {
+public class EmployeeService {
 
     @Autowired
     private EmployeeRepo employeeRepo;

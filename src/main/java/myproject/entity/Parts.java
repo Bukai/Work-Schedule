@@ -2,6 +2,7 @@ package myproject.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,21 +17,21 @@ public class Parts {
     @NotEmpty
     private String name;
 
-    @NotEmpty
-    private int quantity;
+    @NotNull
+    private double quantity;
 
-    @NotEmpty
+    @NotNull
     private double sellingCost;
 
-    @NotEmpty
+    @NotNull
     private double costOfPurchase;
 
     @ManyToMany(mappedBy = "parts")
     private List<Order> ordersParts =
             new ArrayList<>();
 
-    public Parts(long id, @NotEmpty String name, @NotEmpty int quantity, @NotEmpty double sellingCost,
-                 @NotEmpty double costOfPurchase, List<Order> ordersParts) {
+    public Parts(long id, @NotEmpty String name, @NotNull double quantity, @NotNull double sellingCost,
+                 @NotNull double costOfPurchase, List<Order> ordersParts) {
         this.id = id;
         this.name = name;
         this.quantity = quantity;
@@ -59,11 +60,11 @@ public class Parts {
         this.name = name;
     }
 
-    public int getQuantity() {
+    public double getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(double quantity) {
         this.quantity = quantity;
     }
 

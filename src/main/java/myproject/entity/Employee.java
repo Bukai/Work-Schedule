@@ -31,6 +31,7 @@ class Employee {
     @Size(min = 11, max = 11)
     private String pesel;
 
+    @NotEmpty
     private double rgb;
 
     @ManyToMany(mappedBy = "employees")

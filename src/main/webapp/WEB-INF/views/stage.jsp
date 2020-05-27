@@ -32,8 +32,12 @@
                         <td>${stage.id}</td>
                         <td>${stage.name}</td>
                         <td>
-                            <a href="/stage/edit/${stage.id}">Edit</a>
-                            <a href="/stage/delete/${stage.id}">Delete</a>
+                            <a href="/stage/edit/${stage.id}">
+                                <button type="button" class="btn btn-primary">Edit</button>
+                            </a>
+                            <a href="/stage/delete/${stage.id}">
+                                <button type="button" class="btn btn-danger">Delete</button>
+                            </a>
                         </td>
                     </tr>
                 </c:forEach>

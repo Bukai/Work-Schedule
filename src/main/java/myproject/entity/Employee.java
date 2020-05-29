@@ -4,34 +4,35 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "employee")
-public @Data
-class Employee {
+@Data
+public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotEmpty
+    @NotNull
     private String firstName;
-    @NotEmpty
+    @NotNull
     private String surname;
-    @NotEmpty
+    @NotNull
     private String address;
-    @NotEmpty
+    @NotNull
     private String phone;
 
     private String email;
-    @NotEmpty
+    @NotNull
     @Size(min = 11, max = 11)
     private String pesel;
 
-    @NotEmpty
+    @NotNull
     private double rgb;
 
     @ManyToMany(mappedBy = "employees")

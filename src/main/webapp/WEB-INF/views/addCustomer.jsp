@@ -15,7 +15,7 @@
         <div class="container-fluid">
             <fieldset>
                 <legend><h3>Add Customer</h3></legend>
-                <form:form modelAttribute="customers" action="/customer/add" method="post" >
+                <form:form modelAttribute="customers" action="/user/customer/add" method="post" >
                     <div class="mb-3">
                         <form:label path="companyName">Company Name:</form:label>
                         <form:input path="companyName"/>

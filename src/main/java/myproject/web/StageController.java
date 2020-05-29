@@ -3,6 +3,8 @@ package myproject.web;
 import myproject.entity.OrderStage;
 import myproject.repositories.StageRepo;
 import myproject.service.StageService;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
-@RequestMapping("/stage")
+@RequestMapping("admin/stage")
 public class StageController {
 
     private final StageRepo stageRepo;
@@ -30,6 +32,11 @@ public class StageController {
         return "stage";
     }
 
+    @GetMapping("/messageAdmin")
+    public String error(){
+        return "messageAdmin";
+    }
+
     @GetMapping("/add")
     public String addStage(Model model){
         model.addAttribute("orderStage", new OrderStage());
@@ -39,7 +46,7 @@ public class StageController {
     @PostMapping("/add")
     public String processStage(@ModelAttribute("orderStage") OrderStage orderStage){
         stageService.save(orderStage);
-        return "redirect:/stage";
+        return "redirect:/admin/stage";
     }
 
     @GetMapping("/edit/{id}")
@@ -53,6 +60,6 @@ public class StageController {
     @GetMapping("/delete/{id}")
     public String deleteStage(@PathVariable(name = "id") long id){
         stageService.delete(id);
-        return "redirect:/stage";
+        return "redirect:/admin/stage";
     }
 }

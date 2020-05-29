@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
-@RequestMapping("/customer")
+@RequestMapping("user/customer")
 public class CustomersController {
 
     private final CustomersRepo customersRepo;
@@ -38,7 +38,7 @@ public class CustomersController {
     @PostMapping("/add")
     public String addEmployee(@ModelAttribute("customers") Customers customers){
         customerService.save(customers);
-        return "redirect:/customer";
+        return "redirect:/user/customer";
     }
 
     @GetMapping("/edit/{id}")
@@ -52,6 +52,6 @@ public class CustomersController {
     @GetMapping("/delete/{id}")
     public String deleteStage(@PathVariable(name = "id") long id){
         customerService.delete(id);
-        return "redirect:/customer";
+        return "redirect:/user/customer";
     }
 }

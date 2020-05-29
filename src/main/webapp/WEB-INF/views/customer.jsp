@@ -14,7 +14,7 @@
         <%@ include file="/WEB-INF/headers/naviTop.jspf" %>
         <div class="container-fluid">
             <h3>Customer</h3>
-            <a href="/customer/add">
+            <a href="/user/customer/add">
                 <button type="button" class="btn btn-success">Dodaj</button>
             </a>
             <br/><br/>
@@ -44,10 +44,10 @@
                         <td>${customer.email}</td>
 
                         <td>
-                            <a href="/customer/edit/${customer.id}">
+                            <a href="/user/customer/edit/${customer.id}">
                                 <button type="button" class="btn btn-primary">Edit</button>
                             </a>
-                            <a href="/customer/delete/${customer.id}">
+                            <a href="/user/customer/delete/${customer.id}">
                                 <button type="button" class="btn btn-danger">Delete</button>
                             </a>
                         </td>

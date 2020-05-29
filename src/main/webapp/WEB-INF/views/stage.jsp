@@ -15,7 +15,7 @@
         <%@ include file="/WEB-INF/headers/naviTop.jspf" %>
         <div class="container-fluid">
             <h3>Stage</h3>
-            <a href="/stage/add">
+            <a href="/admin/stage/add">
                 <button type="button" class="btn btn-success">Dodaj</button>
             </a>
             <br/><br/>
@@ -32,10 +32,10 @@
                         <td>${stage.id}</td>
                         <td>${stage.name}</td>
                         <td>
-                            <a href="/stage/edit/${stage.id}">
+                            <a href="/admin/stage/edit/${stage.id}">
                                 <button type="button" class="btn btn-primary">Edit</button>
                             </a>
-                            <a href="/stage/delete/${stage.id}">
+                            <a href="/admin/stage/delete/${stage.id}">
                                 <button type="button" class="btn btn-danger">Delete</button>
                             </a>
                         </td>

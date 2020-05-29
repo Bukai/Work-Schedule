@@ -16,7 +16,7 @@
         <div class="container-fluid">
             <h3>Edit Stage</h3>
             <br/><br/>
-            <form:form modelAttribute="stage" action="/stage/add" method="post" >
+            <form:form modelAttribute="stage" action="/admin/stage/add" method="post" >
                 <div class="mb-3">
                     <form:label path="name">Nazwa:</form:label>
                     <form:input path="name"/>

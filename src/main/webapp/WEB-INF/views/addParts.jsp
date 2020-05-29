@@ -15,7 +15,7 @@
         <div class="container-fluid">
             <fieldset>
                 <legend><h3>Add Employee</h3></legend>
-                <form:form modelAttribute="parts" action="/parts/add" method="post" >
+                <form:form modelAttribute="parts" action="/user/parts/add" method="post" >
                     <div class="mb-3">
                         <form:label path="name">Name:</form:label>
                         <form:input path="name"/>

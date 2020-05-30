@@ -28,9 +28,4 @@ public class Parts {
 
     @NotNull
     private double costOfPurchase;
-
-    @ManyToMany(mappedBy = "parts")
-    private List<Order> ordersParts =
-            new ArrayList<>();
-
 }

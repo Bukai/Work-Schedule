@@ -18,9 +18,4 @@ public class OrderStage {
 
     @NotEmpty
     private String name;
-
-    @OneToMany(mappedBy = "orderStage")
-    private List<Order> orders =
-            new ArrayList<>();
-
 }

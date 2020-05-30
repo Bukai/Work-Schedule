@@ -3,6 +3,7 @@ package myproject.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
@@ -34,9 +35,5 @@ public class Customers {
     private String phone;
     @NotEmpty
     private String email;
-
-    @OneToMany(mappedBy = "customers")
-    private List<Order> orders =
-            new ArrayList<>();
 
 }

@@ -1,12 +1,15 @@
 package myproject.entity;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.text.Format;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Stream;
 
 @Entity
 @Table(name = "orders")
@@ -20,25 +23,26 @@ public class Order {
     @NotEmpty
     private String description;
 
-    @ManyToOne
-    private Customers customers;
+    @ManyToMany
+    private Set<Customers> customers = new HashSet<Customers>();
 
     @ManyToMany
-    @JoinTable(name = "order_employees")
-    private List<Employee> employees = new ArrayList<>();
-    @ManyToMany
-    @JoinTable(name = "order_parts")
-    private List<Parts> parts = new ArrayList<>();
+    private Set<Employee> employees = new HashSet<Employee>();
+
+    @ManyToOne
+    private Parts parts;
 
     private double cost;
     private double profit;
 
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     @Column(name = "created_on")
-    private LocalDateTime createdOn;
+    private LocalDate createdOn;
 
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     @Column(name = "end_on")
-    private LocalDateTime endOn;
+    private LocalDate endOn;
 
-    @ManyToOne
-    private OrderStage orderStage;
+    @ManyToMany
+    private Set<OrderStage> orderStage = new HashSet<>();
 }

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Set;
 
 @Service
 @Transactional
@@ -32,4 +33,5 @@ public class CustomerService {
     public void delete(long id){
         customersRepo.deleteById(id);
     }
+
 }

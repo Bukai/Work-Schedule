@@ -13,7 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
-@RequestMapping("admin/stage")
 public class StageController {
 
     private final StageRepo stageRepo;
@@ -25,7 +24,7 @@ public class StageController {
         this.stageService = stageService;
     }
 
-    @GetMapping("")
+    @GetMapping("/admin/stage")
     public String Stage(Model model){
         List<OrderStage> listStage = stageService.listAll();
         model.addAttribute("listStage", listStage);
@@ -37,19 +36,19 @@ public class StageController {
         return "messageAdmin";
     }
 
-    @GetMapping("/add")
+    @GetMapping("/admin/stage/add")
     public String addStage(Model model){
         model.addAttribute("orderStage", new OrderStage());
         return "addStage";
     }
 
-    @PostMapping("/add")
+    @PostMapping("/admin/stage/add")
     public String processStage(@ModelAttribute("orderStage") OrderStage orderStage){
         stageService.save(orderStage);
         return "redirect:/admin/stage";
     }
 
-    @GetMapping("/edit/{id}")
+    @GetMapping("/admin/stage/edit/{id}")
     public ModelAndView editStage(@PathVariable(name = "id") long id){
         ModelAndView modelAndView = new ModelAndView("editStage");
         OrderStage orderStage = stageService.get(id);
@@ -57,7 +56,7 @@ public class StageController {
         return modelAndView;
     }
 
-    @GetMapping("/delete/{id}")
+    @GetMapping("/admin/stage/delete/{id}")
     public String deleteStage(@PathVariable(name = "id") long id){
         stageService.delete(id);
         return "redirect:/admin/stage";

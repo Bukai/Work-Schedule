@@ -1,10 +1,12 @@
 package myproject.service;
 
+import myproject.entity.Customers;
 import myproject.entity.Employee;
 import myproject.entity.OrderStage;
 import myproject.repositories.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import javax.transaction.Transactional;
 import java.util.List;

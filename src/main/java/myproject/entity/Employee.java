@@ -35,7 +35,4 @@ public class Employee {
     @NotNull
     private double rgb;
 
-    @ManyToMany(mappedBy = "employees")
-    private List<Order> ordersEmployees = new ArrayList<>();
-
 }

@@ -36,7 +36,7 @@ public class PartsController {
     }
 
     @PostMapping("/add")
-    public String addEmployee(@ModelAttribute("parts") Parts parts){
+    public String addEmployee(Parts parts){
         partsService.save(parts);
         return "redirect:/user/parts";
     }

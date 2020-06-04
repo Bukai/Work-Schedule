@@ -30,38 +30,10 @@
                                 <option value="${customer.id}">${customer.companyName} ${customer.nip}</option>
                             </c:forEach>
                         </select>
+                        <a href="/user/customer/add">
+                            <button type="button" class="btn btn-success">Dodaj</button>
+                        </a>
                         <form:errors path="customers" cssClass="errorMessage"/><br/>
-                    </div>
-                    <div class="mb-3">
-                        <label>Employees:</label>
-                        <select name="employees">
-                            <option value="NONE" label="--- Employee ---"></option>
-                            <c:forEach var="employee" items="${employees}">
-                                <option value="${employee.id}">${employee.firstName}
-                                        ${employee.surname}</option>
-                            </c:forEach>
-                        </select>
-                        <form:errors path="employees" cssClass="errorMessage"/><br/>
-                    </div>
-                    <div class="mb-3">
-                        <label>Parts:</label>
-                        <select name="parts">
-                            <option value="NONE" label="--- Parts ---"></option>
-                            <c:forEach var="parts" items="${parts}">
-                                <option value="${parts.id}">${parts.name}</option>
-                            </c:forEach>
-                        </select>
-                        <form:errors path="parts" cssClass="errorMessage"/><br/>
-                    </div>
-                    <div class="mb-3">
-                        <form:label path="cost">cost:</form:label>
-                        <form:input path="cost"/>
-                        <form:errors path="cost" cssClass="errorMessage"/><br/>
-                    </div>
-                    <div class="mb-3">
-                        <form:label path="profit">profit:</form:label>
-                        <form:input path="profit"/>
-                        <form:errors path="profit" cssClass="errorMessage"/><br/>
                     </div>
                     <div class="mb-3">
                         <form:label path="createdOn">createdOn:</form:label>
@@ -69,20 +41,16 @@
                         <form:errors path="createdOn" cssClass="errorMessage"/><br/>
                     </div>
                     <div class="mb-3">
-                        <form:label path="endOn">endOn:</form:label>
-                        <form:input type="date" path="endOn"/>
-                        <form:errors path="endOn" cssClass="errorMessage"/><br/>
-                    </div>
-                    <div class="mb-3">
                         <label>orderStage:</label>
                         <select name="orderStage">
-                            <option value="NONE" label="--- Stage ---"></option>
                             <c:forEach var="orderStage" items="${stages}">
                                 <option value="${orderStage.id}">${orderStage.name}</option>
                             </c:forEach>
                         </select>
                         <form:errors path="orderStage" cssClass="errorMessage"/><br/>
                     </div>
+                    <form:hidden path="parts"/>
+                    <form:hidden path="employees"/>
 
                     <form:hidden path="id"/>
 

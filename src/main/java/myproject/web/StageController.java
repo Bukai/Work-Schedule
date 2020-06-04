@@ -43,7 +43,7 @@ public class StageController {
     }
 
     @PostMapping("/admin/stage/add")
-    public String processStage(@ModelAttribute("orderStage") OrderStage orderStage){
+    public String processStage(OrderStage orderStage){
         stageService.save(orderStage);
         return "redirect:/admin/stage";
     }

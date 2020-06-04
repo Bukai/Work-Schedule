@@ -24,12 +24,7 @@
                     <th>ID</th>
                     <th>description</th>
                     <th>customers</th>
-                    <th>employees</th>
-                    <th>parts</th>
-                    <th>cost</th>
-                    <th>profit</th>
                     <th>createdOn</th>
-                    <th>endOn</th>
                     <th>orderStage</th>
                     <th>Action</th>
                 </tr>
@@ -45,24 +40,7 @@
                                 ${customer.nip}
                             </c:forEach>
                         </td>
-                        <td>
-                            <c:forEach var="employee" items="${order.employees}">
-                                ${employee.firstName}<br>
-                                ${employee.surname}<br>
-                                ${employee.rgb}
-                            </c:forEach>
-                        </td>
-                        <td>
-                            <c:forEach var="part" items="${order.parts}">
-                                ${part.name}<br>
-                                ${part.quantity}<br>
-                                ${part.sellingCost}
-                            </c:forEach>
-                        </td>
-                        <td>${order.cost}</td>
-                        <td>${order.profit}</td>
                         <td>${order.createdOn}</td>
-                        <td>${order.endOn}</td>
                         <td>
                             <c:forEach var="stage" items="${order.orderStage}">
                                 ${stage.name}
@@ -70,6 +48,9 @@
                         </td>
 
                         <td>
+                            <a href="/user/order/details/${order.id}">
+                                <button type="button" class="btn btn-info">Details</button>
+                            </a>
                             <a href="/user/order/edit/${order.id}">
                                 <button type="button" class="btn btn-primary">Edit</button>
                             </a>

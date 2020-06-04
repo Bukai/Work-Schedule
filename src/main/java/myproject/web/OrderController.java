@@ -32,14 +32,14 @@ public class OrderController {
     }
 
     @GetMapping("")
-    public String Parts(Model model){
+    public String Order(Model model){
         List<Order> ordersList = orderService.listAll();
         model.addAttribute("ordersList", ordersList);
         return "order";
     }
 
     @GetMapping("/add")
-    public String newParts(Model model){
+    public String NewOrder(Model model){
         List<Customers> customers = customerService.listAll();
         List<Parts> parts = partsService.listAll();
         List<OrderStage> stages = stageService.listAll();
@@ -53,13 +53,13 @@ public class OrderController {
     }
 
     @PostMapping("/add")
-    public String addEmployee(@ModelAttribute("orders") Order order){
+    public String AddOrder(Order order){
         orderService.save(order);
         return "redirect:/user/order";
     }
 
     @GetMapping("/edit/{id}")
-    public ModelAndView editStage(@PathVariable(name = "id") long id){
+    public ModelAndView EditOrder(@PathVariable(name = "id") long id){
         ModelAndView modelAndView = new ModelAndView("editOrder");
         Order order = orderService.get(id);
         List<Customers> customers = customerService.listAll();
@@ -75,7 +75,7 @@ public class OrderController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteStage(@PathVariable(name = "id") long id){
+    public String DeleteOrder(@PathVariable(name = "id") long id){
         orderService.delete(id);
         return "redirect:/user/order";
     }

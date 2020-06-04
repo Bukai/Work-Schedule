@@ -24,25 +24,25 @@ public class Order {
     private String description;
 
     @ManyToMany
-    private Set<Customers> customers = new HashSet<Customers>();
+    private List<Customers> customers = new ArrayList<>();
+    @ManyToMany
+    private List<Employee> employees = new ArrayList<>();
 
     @ManyToMany
-    private Set<Employee> employees = new HashSet<Employee>();
-
-    @ManyToOne
-    private Parts parts;
+    private List<Parts> parts = new ArrayList<>();
 
     private double cost;
     private double profit;
 
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @Column(name = "created_on")
     private LocalDate createdOn;
 
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @Column(name = "end_on")
     private LocalDate endOn;
 
     @ManyToMany
-    private Set<OrderStage> orderStage = new HashSet<>();
+    private List<OrderStage> orderStage = new ArrayList<>();
+
 }

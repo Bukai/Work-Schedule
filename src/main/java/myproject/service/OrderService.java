@@ -16,9 +16,6 @@ public class OrderService {
     @Autowired
     private OrderRepo orderRepo;
 
-    @Autowired
-    private CustomersRepo customersRepo;
-
     public List<Order> listAll(){
         return orderRepo.findAll();
     }
@@ -33,10 +30,6 @@ public class OrderService {
 
     public void delete(long id){
         orderRepo.deleteById(id);
-    }
-
-    public List<Customers> customersList() {
-        return customersRepo.findAll();
     }
 
 }

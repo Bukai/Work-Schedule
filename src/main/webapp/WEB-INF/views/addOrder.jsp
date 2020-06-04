@@ -65,12 +65,12 @@
                     </div>
                     <div class="mb-3">
                         <form:label path="createdOn">createdOn:</form:label>
-                        <form:input path="createdOn"/>
+                        <form:input type="date" path="createdOn"/>
                         <form:errors path="createdOn" cssClass="errorMessage"/><br/>
                     </div>
                     <div class="mb-3">
                         <form:label path="endOn">endOn:</form:label>
-                        <form:input path="endOn"/>
+                        <form:input type="date" path="endOn"/>
                         <form:errors path="endOn" cssClass="errorMessage"/><br/>
                     </div>
                     <div class="mb-3">

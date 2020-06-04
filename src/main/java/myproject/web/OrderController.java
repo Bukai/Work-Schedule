@@ -40,7 +40,7 @@ public class OrderController {
 
     @GetMapping("/add")
     public String newParts(Model model){
-        List<Customers> customers = orderService.customersList();
+        List<Customers> customers = customerService.listAll();
         List<Parts> parts = partsService.listAll();
         List<OrderStage> stages = stageService.listAll();
         List<Employee> employees = employeeService.listAll();
@@ -62,7 +62,15 @@ public class OrderController {
     public ModelAndView editStage(@PathVariable(name = "id") long id){
         ModelAndView modelAndView = new ModelAndView("editOrder");
         Order order = orderService.get(id);
+        List<Customers> customers = customerService.listAll();
+        List<Parts> parts = partsService.listAll();
+        List<OrderStage> stages = stageService.listAll();
+        List<Employee> employees = employeeService.listAll();
         modelAndView.addObject("editOrder", order);
+        modelAndView.addObject("customers", customers);
+        modelAndView.addObject("parts", parts);
+        modelAndView.addObject("stages", stages);
+        modelAndView.addObject("employees", employees);
         return modelAndView;
     }
 

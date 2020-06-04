@@ -38,14 +38,36 @@
                     <tr>
                         <td>${order.id}</td>
                         <td>${order.description}</td>
-                        <td>${order.customers}</td>
-                        <td>${order.employees}</td>
-                        <td>${order.parts}</td>
+                        <td>
+                            <c:forEach var="customer" items="${order.customers}">
+                                ${customer.companyName}<br>
+                                ${customer.address}<br>
+                                ${customer.nip}
+                            </c:forEach>
+                        </td>
+                        <td>
+                            <c:forEach var="employee" items="${order.employees}">
+                                ${employee.firstName}<br>
+                                ${employee.surname}<br>
+                                ${employee.rgb}
+                            </c:forEach>
+                        </td>
+                        <td>
+                            <c:forEach var="part" items="${order.parts}">
+                                ${part.name}<br>
+                                ${part.quantity}<br>
+                                ${part.sellingCost}
+                            </c:forEach>
+                        </td>
                         <td>${order.cost}</td>
                         <td>${order.profit}</td>
                         <td>${order.createdOn}</td>
                         <td>${order.endOn}</td>
-                        <td>${order.orderStage}</td>
+                        <td>
+                            <c:forEach var="stage" items="${order.orderStage}">
+                                ${stage.name}
+                            </c:forEach>
+                        </td>
 
                         <td>
                             <a href="/user/order/edit/${order.id}">

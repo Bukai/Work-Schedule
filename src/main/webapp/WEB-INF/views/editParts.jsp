@@ -14,7 +14,7 @@
         <%@ include file="/WEB-INF/headers/naviTop.jspf" %>
         <div class="container-fluid">
             <fieldset>
-                <legend><h3>Add Employee</h3></legend>
+                <legend><h3>Edit Parts</h3></legend>
                 <form:form modelAttribute="editParts" action="/user/parts/add" method="post" >
                     <div class="mb-3">
                         <form:label path="name">Name:</form:label>

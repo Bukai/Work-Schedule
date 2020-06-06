@@ -26,7 +26,7 @@
                 <form:hidden path="id"/>
 
                 <form:button class="btn btn-primary btn-lg"
-                             type="submit">Dodaj</form:button>
+                             type="submit">Add</form:button>
             </form:form>
         </div>
     </div>

@@ -30,19 +30,19 @@ public class PartsController {
     }
 
     @GetMapping("/add")
-    public String newParts(Model model){
+    public String NewParts(Model model){
         model.addAttribute("parts", new Parts());
         return "addParts";
     }
 
     @PostMapping("/add")
-    public String addEmployee(Parts parts){
+    public String AddParts(Parts parts){
         partsService.save(parts);
         return "redirect:/user/parts";
     }
 
     @GetMapping("/edit/{id}")
-    public ModelAndView editStage(@PathVariable(name = "id") long id){
+    public ModelAndView EditParts(@PathVariable(name = "id") long id){
         ModelAndView modelAndView = new ModelAndView("editParts");
         Parts parts = partsService.get(id);
         modelAndView.addObject("editParts", parts);
@@ -50,7 +50,7 @@ public class PartsController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteStage(@PathVariable(name = "id") long id){
+    public String DeleteParts(@PathVariable(name = "id") long id){
         partsService.delete(id);
         return "redirect:/user/parts";
     }

@@ -31,19 +31,19 @@ public class EmployeeController {
     }
 
     @GetMapping("/add")
-    public String newEmploye(Model model){
+    public String NewEmploye(Model model){
         model.addAttribute("employee", new Employee());
         return "addEmployee";
     }
 
     @PostMapping("/add")
-    public String addEmployee(Employee employee){
+    public String AddEmployee(Employee employee){
         employeeService.save(employee);
         return "redirect:/user/employee";
     }
 
     @GetMapping("/edit/{id}")
-    public ModelAndView editStage(@PathVariable(name = "id") long id){
+    public ModelAndView EditEmployee(@PathVariable(name = "id") long id){
         ModelAndView modelAndView = new ModelAndView("editEmployee");
         Employee employee = employeeService.get(id);
         modelAndView.addObject("editemployee", employee);
@@ -51,7 +51,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteStage(@PathVariable(name = "id") long id){
+    public String DeleteEmployee(@PathVariable(name = "id") long id){
         employeeService.delete(id);
         return "redirect:/user/employee";
     }

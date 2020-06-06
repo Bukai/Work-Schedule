@@ -1,8 +1,6 @@
 package myproject.service;
 
-import myproject.entity.Order;
 import myproject.entity.Parts;
-import myproject.repositories.OrderRepo;
 import myproject.repositories.PartsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,9 +13,6 @@ public class PartsService {
 
     @Autowired
     private PartsRepo partsRepo;
-
-    @Autowired
-    private OrderRepo orderRepo;
 
     public List<Parts> listAll(){
         return partsRepo.findAll();

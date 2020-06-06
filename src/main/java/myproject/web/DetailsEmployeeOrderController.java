@@ -28,7 +28,7 @@ public class DetailsEmployeeOrderController {
     }
 
     @GetMapping("/add/{id}")
-    public String NewOrder(Model model, @PathVariable long id){
+    public String NewDetailOrder(Model model, @PathVariable long id){
         Order orders = orderService.get(id);
         List<Employee> employees = employeeService.listAll();
         model.addAttribute("orders", orders);
@@ -37,8 +37,14 @@ public class DetailsEmployeeOrderController {
     }
 
     @PostMapping("/add/{id}")
-    public String AddOrder(Order order){
+    public String AddDetailOrder(Order order){
         orderService.save(order);
+        return "redirect:/user/order/details/{id}";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String DeleteDetail(@PathVariable(name = "id") long id){
+        employeeService.delete(id);
         return "redirect:/user/order/details/{id}";
     }
 }

@@ -15,7 +15,7 @@
         <div class="container-fluid">
             <h3>Employee</h3>
             <a href="/user/employee/add">
-            <button type="button" class="btn btn-success">Dodaj</button>
+            <button type="button" class="btn btn-success">Add</button>
             </a>
             <br/><br/>
             <table border="1" cellpadding="10">

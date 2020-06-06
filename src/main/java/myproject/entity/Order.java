@@ -33,10 +33,10 @@ public class Order {
     private List<Customers> customers = new ArrayList<>();
 
     @ManyToMany
-    private List<Employee> employees = new ArrayList<>();
+    private Set<Employee> employees;
 
     @ManyToMany
-    private List<Parts> parts = new ArrayList<>();
+    private Set<Parts> parts;
 
     private double cost;
     private double profit;
@@ -51,5 +51,4 @@ public class Order {
 
     @ManyToMany
     private List<OrderStage> orderStage = new ArrayList<>();
-
 }

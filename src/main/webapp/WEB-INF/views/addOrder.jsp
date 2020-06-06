@@ -31,7 +31,7 @@
                             </c:forEach>
                         </select>
                         <a href="/user/customer/add">
-                            <button type="button" class="btn btn-success">Dodaj</button>
+                            <button type="button" class="btn btn-success">Add</button>
                         </a>
                         <form:errors path="customers" cssClass="errorMessage"/><br/>
                     </div>

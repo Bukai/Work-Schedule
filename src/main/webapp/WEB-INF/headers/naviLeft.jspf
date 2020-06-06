@@ -1,10 +1,10 @@
 <div class="bg-light border-right" id="sidebar-wrapper">
     <div class="sidebar-heading">Lift-Station </div>
     <div class="list-group list-group-flush">
-        <a href="/user/order/" class="list-group-item list-group-item-action bg-light">Zlecenia</a>
-        <a href="/user/customer/" class="list-group-item list-group-item-action bg-light">Klienci</a>
-        <a href="/user/parts/" class="list-group-item list-group-item-action bg-light">Magazyn</a>
-        <a href="/user/employee/" class="list-group-item list-group-item-action bg-light">Pracownicy</a>
-        <a href="/admin/stage/" class="list-group-item list-group-item-action bg-light">Stage</a>
+        <a href="/user/order/" class="list-group-item list-group-item-action bg-light">Order</a>
+        <a href="/user/customer/" class="list-group-item list-group-item-action bg-light">Customers</a>
+        <a href="/user/parts/" class="list-group-item list-group-item-action bg-light">Parts</a>
+        <a href="/user/employee/" class="list-group-item list-group-item-action bg-light">Employees</a>
+        <a href="/admin/stage/" class="list-group-item list-group-item-action bg-light">Stages</a>
     </div>
 </div>

@@ -1,14 +1,11 @@
 package myproject.service;
 
 import myproject.entity.Order;
-import myproject.entity.Parts;
 import myproject.repositories.OrderRepo;
-import myproject.repositories.PartsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class OrderService {
@@ -31,4 +28,5 @@ public class OrderService {
     public void delete(long id) {
         orderRepo.deleteById(id);
     }
+
 }

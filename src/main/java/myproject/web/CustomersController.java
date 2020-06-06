@@ -23,26 +23,26 @@ public class CustomersController {
     }
 
     @GetMapping("")
-    public String Parts(Model model){
+    public String CustomerList(Model model){
         List<Customers> customerList = customerService.listAll();
         model.addAttribute("customerList", customerList);
         return "customer";
     }
 
     @GetMapping("/add")
-    public String newParts(Model model){
+    public String NewCustomer(Model model){
         model.addAttribute("customers", new Customers());
         return "addCustomer";
     }
 
     @PostMapping("/add")
-    public String addEmployee(Customers customers){
+    public String AddCustomer(Customers customers){
         customerService.save(customers);
         return "redirect:/user/customer";
     }
 
     @GetMapping("/edit/{id}")
-    public ModelAndView editStage(@PathVariable(name = "id") long id){
+    public ModelAndView EditCustomer(@PathVariable(name = "id") long id){
         ModelAndView modelAndView = new ModelAndView("editCustomer");
         Customers customers = customerService.get(id);
         modelAndView.addObject("editCustomer", customers);
@@ -50,7 +50,7 @@ public class CustomersController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteStage(@PathVariable(name = "id") long id){
+    public String DeleteCustomer(@PathVariable(name = "id") long id){
         customerService.delete(id);
         return "redirect:/user/customer";
     }

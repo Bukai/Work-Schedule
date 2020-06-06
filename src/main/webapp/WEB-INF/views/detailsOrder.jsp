@@ -27,7 +27,7 @@
                 <br>
                 <h4>Parts:</h4>
                 <a href="/user/order/details/parts/add/${order.id}">
-                    <button type="button" class="btn btn-success">Dodaj</button>
+                    <button type="button" class="btn btn-success">Add</button>
                 </a>
                 <br>
                 <br>
@@ -51,7 +51,7 @@
                             <td>${parts.sellingCost}</td>
                             <td>${parts.costOfPurchase}</td>
                             <td>
-                                <a href="/user/order/details/${parts.id}/delete">
+                                <a href="/user/order/details/parts/delete/${parts.id}">
                                     <button type="button" class="btn btn-danger">Delete</button>
                                 </a>
                             </td>
@@ -63,7 +63,7 @@
                 <br>
                 <h4>Employees:</h4>
                 <a href="/user/order/details/employees/add/${order.id}">
-                    <button type="button" class="btn btn-success">Dodaj</button>
+                    <button type="button" class="btn btn-success">Add</button>
                 </a>
                 <br>
                 <br>

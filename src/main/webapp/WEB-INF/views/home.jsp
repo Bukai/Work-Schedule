@@ -14,7 +14,7 @@
     <div id="page-content-wrapper">
         <%@ include file="/WEB-INF/headers/naviTop.jspf" %>
         <div class="container-fluid">
-            <h3>Witam</h3>
+            <h3>Hello!</h3>
         </div>
     </div>
 
